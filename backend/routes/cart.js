@@ -4,7 +4,7 @@ addToCart,
 removeItem,
 updateQuantity,
 getCart
-} from "../controllers/cartController";
+} from "../controllers/cartController.js";
 
 const router=express.Router();
 // Add items to cart 
@@ -14,6 +14,6 @@ router.post('/remove',removeItem);
 // Update item quantity in cart
 router.post('/update',updateQuantity);
 // get user's cart
-router.post('/:userId',getCart);
+router.get('/:userId',getCart);
 
 export default router;

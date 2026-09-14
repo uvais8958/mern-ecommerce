@@ -7,8 +7,12 @@ export default function ProductList(){
 
 
      const loadProducts=async()=>{
-        const response=await api.get("/products");
+                try{
+                       const response=await api.get("/products");
         setProducts(response.data);
+                }catch(error){
+                    console.error("Error is loading products..");
+                }
      }
 
      const deleteProduct=async (id)=>{

@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from './routes/productsRoutes.js';
-import cartRoutes from './models/cart.js';
+import cartRoutes from './routes/cart.js';
 
 dotenv.config();
 const app=express();
