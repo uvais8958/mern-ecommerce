@@ -27,6 +27,7 @@ export default function Login(){
     
          //  save Token
         localStorage.setItem("token",res.data.token);
+        localStorage.setItem("userId",res.data.user.id)
 
         setMsg("Login successfull");
         

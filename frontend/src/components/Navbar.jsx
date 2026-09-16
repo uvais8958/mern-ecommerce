@@ -1,7 +1,8 @@
 import {Link,useNavigate} from 'react-router';
 import { useState,useEffect } from 'react';
-import { FaAppStoreIos, FaShoppingCart } from "react-icons/fa";
+// import { FaShoppingCart } from "react-icons/fa";
 import api from "../api/axios";
+
 
 export default function Navbar  ()  {
   const navigate=useNavigate();
@@ -39,7 +40,10 @@ export default function Navbar  ()  {
         <div className='flex gap-4 items-center'>
             <Link to="/cart" className='related text-xl'>
             {
-             FaShoppingCart   
+             <img 
+             src="https://encrypted-tbn0.gstatic.com/images?q=
+             tbn:ANd9GcT60TI_YBN0-Tpbx2SlA-Izz7pxQzCzb_oe-kTuZiR7DQ&s" 
+             alt="cartImage" />
             }
 
             {
@@ -55,7 +59,7 @@ export default function Navbar  ()  {
                 !userId ?(
                     <>
                     <Link to="/login" className='text-lg'>Login</Link>
-                    <link to="signup" className='text-lg'>Signup</link>
+                    <Link to="signup" className='text-lg'>Signup</Link>
                     </>
                 ):(
                     <button onClick={logout} className='text-lg'>Logout</button>

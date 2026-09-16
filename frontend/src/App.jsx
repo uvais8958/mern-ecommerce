@@ -10,12 +10,11 @@ import Navbar from "./components/Navbar";
 
 
 function Layout(){
-  return(<>
+  return(<div>
   <Navbar/>
   <Outlet/>
-
-  
-  </>)
+  </div>
+  )
 }
 const router=createBrowserRouter([
 {

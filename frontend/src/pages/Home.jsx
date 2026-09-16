@@ -22,6 +22,20 @@ export default function Home  () {
     loadProducts();
 
   },[search,category]);
+
+  const addToCart= async(productId)=>{
+    const userId=localStorage.getItem("userId");
+    if(!userId){
+      alert("Please log in to add items to your cart.");
+      return;
+    }
+    const res= await api.post(`/cart/add`,{userId,productId});
+    const total=res.data.cart.items.reduce(
+      (sum,item)=>sum+item.productId.price * item.quantity,0
+    );
+    localStorage.setItem("cartCount",total);
+    window.dispatchEvent(new Event("cartUpdated"));
+  }
   
   return (
     <div className="p-6">
@@ -75,7 +89,10 @@ export default function Home  () {
            
           }
             
-
+            <button onClick={()=>addToCart(product._id)}
+              className="mt-2 w-full bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-800">
+              Add To Cart
+            </button>
        
        </div>    
               
