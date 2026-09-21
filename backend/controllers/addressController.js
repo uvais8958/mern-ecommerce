@@ -1,0 +1,23 @@
+import Address from "../models/Address.js";
+
+export const saveAddress=async (req,res)=>{
+    try{ 
+        const address=await Address.create(req.body);
+        res.json({message:"Address saved Successfully",address});
+
+    }catch(error){
+        res.status(500).json({message:"Error saving address",error});
+    }
+};
+
+// Get Address by user ID
+export const getAddresses=async(req,res)=>{
+    try{
+           const addresses=await Address.find({
+            userId:req.params.userId
+           })
+           res.json(addresses);
+    }catch(error){
+        res.status(500).json({message:"Error fetching addresses..",error});
+    }
+}
