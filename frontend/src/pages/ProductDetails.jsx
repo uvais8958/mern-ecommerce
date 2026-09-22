@@ -27,15 +27,19 @@ import { useEffect,useState } from "react";
 
 
   return (
-    <div className="p-6 mx-w-3xl mx-auto">
+    <div className=" flex flex-col items-center justify-center   p-6 mx-w-3xl mx-auto">
       
 
-      <img src={product.image} alt={product.title} className="w-full h-40 object-contain bg-white rounded" />
+      <img src={product.image}
+       alt={product.title} 
+       className="w-40 h-40 object-contain bg-white rounded max-auto" />
 
       <h1 className="text-2xl font-bold mt-4">{product.title}</h1>
       <p className="text-gray-700 mt-2">${product.description}</p>
       <p className="text-xl font-semibold mt-4">${product.price}</p>
-        <button className="mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+       
+       
+        <button className=" px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
           Add to cart
           </button>            
 
